@@ -4,10 +4,10 @@ This will take a team you've created within your organization and add all users 
 You'll need an OAuth token (https://help.github.com/articles/creating-an-access-token-for-command-line-use), the id of your team (https://developer.github.com/v3/orgs/teams/#list-teams) and your organization name (godspeed).
 
 ### Steps
-Clone the repo
-Throw in your variables
-chmod +x generator.sh
-./generator.sh
+* Clone the repo
+* Throw in your variables
+* chmod +x generator.sh
+* ./generator.sh
 
 ### To Dos
 - [x] throw up the basic generator
