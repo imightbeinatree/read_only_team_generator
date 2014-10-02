@@ -10,6 +10,7 @@ chmod +x generator.sh
 ./generator.sh
 
 ### To Dos
+- [x] throw up the basic generator
 - [ ] add team creation functionality
 - [ ] refactor pagination
 - [ ] throw a python one in here to show how much simpler it is
