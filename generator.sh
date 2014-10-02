@@ -33,7 +33,6 @@ IFS=$'\r\n' GLOBIGNORE='*' :; repos_array=($(curl -H "Authorization: token $toke
 
 # add every private repository to the team for the organization
 # https://developer.github.com/v3/orgs/teams/#add-team-repo
-#PUT /teams/$team_id/repos/$org/$repo
 for i in "${repos_array[@]}"
 do
   :
