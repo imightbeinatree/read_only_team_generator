@@ -27,22 +27,14 @@ do
 done
 
 # get a list of every private repository in the organization
-# github limits us to 100 per page so fix this code, it's embarrassing
 # https://developer.github.com/v3/repos/#list-organization-repositories
-IFS=$'\r\n' GLOBIGNORE='*' :; repos1_array=($(curl -H "Authorization: token $token" -i "https://api.github.com/orgs/$org/repos?page=1&per_page=100"|grep "\"name\": "|cut -d ":" -f 2|sed 's/"//g'|sed 's/,//g'|sed 's/ //g'))
-IFS=$'\r\n' GLOBIGNORE='*' :; repos2_array=($(curl -H "Authorization: token $token" -i "https://api.github.com/orgs/$org/repos?page=2&per_page=100"|grep "\"name\": "|cut -d ":" -f 2|sed 's/"//g'|sed 's/,//g'|sed 's/ //g'))
+IFS=$'\r\n' GLOBIGNORE='*' :; repos_array=($(curl -H "Authorization: token $token" -i "https://api.github.com/orgs/$org/repos?page=1&per_page=100"|grep "\"name\": "|cut -d ":" -f 2|sed 's/"//g'|sed 's/,//g'|sed 's/ //g'))
 
 
 # add every private repository to the team for the organization
 # https://developer.github.com/v3/orgs/teams/#add-team-repo
 #PUT /teams/$team_id/repos/$org/$repo
-for i in "${repos1_array[@]}"
-do
-  :
-  curl --request PUT -H "Content-Length: 0" -H "Authorization: token $token" -i "https://api.github.com/teams/$team_id/repos/$org/$i"
-done
-
-for i in "${repos2_array[@]}"
+for i in "${repos_array[@]}"
 do
   :
   curl --request PUT -H "Content-Length: 0" -H "Authorization: token $token" -i "https://api.github.com/teams/$team_id/repos/$org/$i"
