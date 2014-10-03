@@ -2,15 +2,15 @@
 # Read Only Team Generator
 
 # here's where you put your oauth token
-token=""
+token=''
 
 
 # this is the org name
-org=""
+org=''
 
 
 # this is the id for team
-team_id=""
+team_id=''
 
 
 # get all members from the organization
